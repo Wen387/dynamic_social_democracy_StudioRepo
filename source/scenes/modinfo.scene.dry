@@ -414,9 +414,9 @@ elements.forEach(el => {
 
 [? if not snoopy: - Added Saxony Landtag Election in 1933. ?]
 
-[? if not snoopy: - Other bug fixes. ?]
+[? if not snoopy: - Removed Herobrine. ?]
 
-[? if not snoopy: - Disconnected the discombobulator. ?]
+[? if not snoopy: - Other bug fixes. ?]
 
 = Future Plans
 
