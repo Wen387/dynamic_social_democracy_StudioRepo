@@ -10,7 +10,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Package source
-        run: tar -czf dynamic-sdaah-source.tar.gz source/ package.json LICENSE README.md
+        run: |
+          # Include out/html text files (index, scripts, styles) for Studio
+          # indexer sidebar/runtime evidence. Exclude large media assets.
+          tar -czf dynamic-sdaah-source.tar.gz \
+            source/ package.json LICENSE README.md \
+            --exclude='out/html/img' \
+            --exclude='out/html/music' \
+            --exclude='out/html/favicon.ico' \
+            --exclude='out/html/.jshintrc' \
+            out/html/
       - name: Upload release assets
         uses: softprops/action-gh-release@v2
         with:
