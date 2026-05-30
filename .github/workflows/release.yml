@@ -20,7 +20,14 @@ jobs:
             --exclude='out/html/favicon.ico' \
             --exclude='out/html/.jshintrc' \
             out/html/
+      - name: Package art assets
+        run: |
+          # Separate archive for images and music (large, optional download).
+          tar -czf dynamic-sdaah-assets.tar.gz \
+            out/html/img/ out/html/music/
       - name: Upload release assets
         uses: softprops/action-gh-release@v2
         with:
-          files: dynamic-sdaah-source.tar.gz
+          files: |
+            dynamic-sdaah-source.tar.gz
+            dynamic-sdaah-assets.tar.gz
